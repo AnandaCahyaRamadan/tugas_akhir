@@ -31,7 +31,7 @@ class LandingPage extends Controller
         }
         $katalog = Katalog::count();
         $channel = Channel::count();
-        $katalog_lisensi = Pengajuan::where('is_active', 'accepted')->distinct('katalog_id')->count();
+        $katalog_lisensi = Pengajuan::where('is_active', 'accepted')->count();
         $tophits = Tophits::all();
         $testimoni = Testimoni::all();
         $user = User::whereNotNull('email_verified_at');
