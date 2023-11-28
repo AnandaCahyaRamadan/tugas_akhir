@@ -75,6 +75,10 @@
             </li>
             <li class="d-flex align-items-center mb-2">
               <i class="bx bx-check-circle fs-xl text-primary me-2"></i>
+              {{ $channel }} channel partner
+            </li>
+            <li class="d-flex align-items-center mb-2">
+              <i class="bx bx-check-circle fs-xl text-primary me-2"></i>
               {{ $katalog_lisensi }} lagu terlisensi
             </li>
           </ul>

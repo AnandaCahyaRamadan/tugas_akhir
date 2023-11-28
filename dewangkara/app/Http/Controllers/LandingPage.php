@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Channel;
 use App\Models\Katalog;
 use App\Models\Pengajuan;
 use App\Models\Role;
@@ -29,12 +30,13 @@ class LandingPage extends Controller
             $publisher = 0 ;
         }
         $katalog = Katalog::count();
+        $channel = Channel::count();
         $katalog_lisensi = Pengajuan::where('is_active', 'accepted')->distinct('katalog_id')->count();
         $tophits = Tophits::all();
         $testimoni = Testimoni::all();
         $user = User::whereNotNull('email_verified_at');
         $cover = $user->Role('cover-patner')->take(6)->get();
-        return view('pages.landingpage', compact('publisher','cover' , 'katalog', 'katalog_lisensi', 'tophits', 'testimoni'));
+        return view('pages.landingpage', compact('channel','publisher','cover' , 'katalog', 'katalog_lisensi', 'tophits', 'testimoni'));
     }
 
     /**

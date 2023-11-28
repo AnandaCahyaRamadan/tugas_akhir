@@ -33,22 +33,8 @@
                                 <ul>
                                     @if (!$item->pivot_channels->isEmpty())
                                         @foreach($item->pivot_channels as $keys => $value)
-                                            @php
-                                                $url = $value->link_channel;
-                                                $atPosition = strpos($url, '@');
-                                                if ($atPosition !== false) {
-                                                    // Jika ada karakter '@' dalam URL, kita mengambil semua karakter setelahnya
-                                                    $channelPart = substr($url, $atPosition + 1);
-                                                } else {
-                                                    // Jika tidak ada karakter '@' dalam URL, maka kita akan mengembalikan jalur (path) URL
-                                                    $parsedUrl = parse_url($url);
-                                                    if (isset($parsedUrl['path'])) {
-                                                        $channelPart = ltrim($parsedUrl['path'], '/');
-                                                    }
-                                                }
-                                            @endphp
                                             <li>
-                                                {{ $channelPart }}
+                                                {{ $value->nama_channel }} @if (!$loop->last), @endif
                                             </li>
                                         @endforeach
                                     @else
