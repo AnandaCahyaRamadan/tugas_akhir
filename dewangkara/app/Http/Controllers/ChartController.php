@@ -17,7 +17,7 @@ class ChartController extends Controller
         $currentYear = Carbon::now()->year;
         $isEmpty = true;
         $months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        $bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'December'];
+        $bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
         if (Auth::user()->hasRole('cover-patner')) {
             $userId = Auth::user()->id;
             $datasets = [];
